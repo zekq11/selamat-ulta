@@ -20,7 +20,6 @@
             justify-content: center;
             align-items: center;
             padding: 0;
-            margin: 0;
         }
 
         .container {
@@ -48,7 +47,6 @@
             font-size: 0.95rem;
         }
 
-        /* ===== VIDEO FULL LEBAR ===== */
         .video-wrapper {
             width: 100%;
             background: #000;
@@ -63,7 +61,7 @@
             width: 100%;
             height: 100%;
             display: block;
-            object-fit: cover;  /* Biar video full tanpa border hitam */
+            object-fit: cover;
         }
 
         .message-box {
@@ -97,7 +95,7 @@
             cursor: pointer;
             box-shadow: 0 5px 15px rgba(74, 105, 189, 0.4);
             transition: 0.3s;
-            display: inline-flex;
+            display: flex;
             align-items: center;
             gap: 10px;
             width: 100%;
@@ -125,12 +123,6 @@
             border-top: 1px dashed #ddd;
             padding-top: 12px;
         }
-
-        /* Responsive untuk HP kecil */
-        @media (max-width: 380px) {
-            h2 { font-size: 1.7rem; }
-            .message-box p { font-size: 1rem; }
-        }
     </style>
 </head>
 <body>
@@ -138,10 +130,8 @@
         <h2>🎥 Kejutan Terakhir untuk Ibu Meida</h2>
         <div class="sub">Dari Saya Rafi seorang Abang Online, dengan segenap cinta</div>
 
-        <!-- VIDEO FULL LEBAR -->
         <div class="video-wrapper">
             <video controls autoplay muted playsinline>
-                <!-- 🔴 PASTIKAN FILE VIDEO ADA DI ROOT -->
                 <source src="ucapan.mp4" type="video/mp4">
                 Browser tidak mendukung video.
             </video>
@@ -168,15 +158,12 @@
         </div>
     </div>
 
-    <!-- 🔴 TAMBAHKAN AUDIO HANDLER + AUTO STOP -->
     <script src="audio-handler.js"></script>
     <script>
-        // Matikan audio di halaman video
         if (typeof pauseAudio === 'function') {
             pauseAudio();
         }
-
-        // Confetti simpel
+        
         function createConfetti() {
             for (let i = 0; i < 20; i++) {
                 setTimeout(() => {
@@ -207,10 +194,8 @@
                 }, i * 70);
             }
         }
-
         createConfetti();
-
-        // Lock back button
+        
         history.pushState(null, null, location.href);
         window.onpopstate = () => history.go(1);
     </script>
