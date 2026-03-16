@@ -6,9 +6,46 @@
     <title>📸 Momen Spesial Ibu</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
     <style>
-        /* Tambahan styling khusus halaman 3 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #74ebd5 0%, #acb6e5 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 40px;
+            padding: 50px;
+            text-align: center;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 0.8s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: #4a69bd;
+            margin-bottom: 30px;
+            font-family: 'Dancing Script', cursive;
+        }
+
         .special-photo {
             width: 100%;
             max-width: 500px;
@@ -17,11 +54,6 @@
             overflow: hidden;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
             border: 5px solid white;
-            transition: transform 0.3s ease;
-        }
-
-        .special-photo:hover {
-            transform: scale(1.02);
         }
 
         .special-photo img {
@@ -36,7 +68,7 @@
             padding: 30px;
             margin: 30px 0;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border-left: 5px solid #ff6b6b;
+            border-left: 5px solid #4a69bd;
             text-align: center;
         }
 
@@ -49,50 +81,65 @@
 
         .caption-box .quote {
             font-style: italic;
-            color: #ff6b6b;
+            color: #4a69bd;
             font-size: 1.3rem;
         }
 
-        .btn-container {
-            margin-top: 40px;
+        .signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: #4a69bd;
+            margin: 20px 0;
         }
 
-        /* 🔴 FIX WARNA TOMBOL */
+        .btn-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            gap: 15px;
+        }
+
         .btn-prev {
             background: #ff9f4b;
             color: white;
-            border: none;
             padding: 15px 30px;
+            border: none;
             border-radius: 50px;
             font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
-            transition: 0.3s;
             display: flex;
             align-items: center;
             gap: 10px;
-            box-shadow: 0 5px 15px rgba(255, 159, 75, 0.4);
+            flex: 1;
+            justify-content: center;
         }
 
         .btn-next {
             background: #ff6b9d;
             color: white;
-            border: none;
             padding: 15px 30px;
+            border: none;
             border-radius: 50px;
             font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
-            transition: 0.3s;
             display: flex;
             align-items: center;
             gap: 10px;
-            box-shadow: 0 5px 15px rgba(255, 107, 157, 0.4);
+            flex: 1;
+            justify-content: center;
         }
 
-        .btn-prev:hover, .btn-next:hover {
+        .btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .page-indicator {
+            text-align: center;
+            margin-top: 20px;
+            color: #999;
         }
     </style>
 </head>
@@ -100,26 +147,23 @@
     <div class="container">
         <h2>📸 Momen Terindah Bersama Ibu</h2>
         
-        <!-- 🔴 SATU GAMBAR BESAR -->
         <div class="special-photo">
-            <img src="foto_utama.jpg" alt="Foto Ibu" onerror="this.src='https://via.placeholder.com/500x500/ff6b6b/ffffff?text=Foto+Ibu'">
+            <img src="foto_utama.jpg" alt="Foto Ibu" onerror="this.src='https://via.placeholder.com/500x500/4a69bd/ffffff?text=Foto+Ibu'">
         </div>
 
-        <!-- 🔴 KATA-KATA DI BAWAH GAMBAR -->
         <div class="caption-box">
             <p class="quote">"Di balik setiap senyuman Ibu, ada doa yang tulus untuk anak-anaknya."</p>
             <p>Ibu, foto ini selalu mengingatkan kami akan kebahagiaan yang kau berikan setiap hari.</p>
             <p>Terima kasih untuk semua pelukan hangat dan kasih sayang tanpa batas.</p>
-            <p style="font-size: 1.5rem; color: #ff6b6b;">❤️❤️❤️</p>
+            <p style="font-size: 1.5rem; color: #4a69bd;">❤️❤️❤️</p>
         </div>
 
-        <!-- 🔴 GANTI NAMA sesuai permintaan -->
         <div class="signature">
             Dari anakmu Meida & Abang online<br>
             <span style="font-size: 1.2rem;">Meida & Rafi 🌸💐</span>
         </div>
 
-        <div class="btn-container" style="display: flex; justify-content: space-between; gap: 15px;">
+        <div class="btn-container">
             <button class="btn-prev" onclick="location.href='halaman2.html'">
                 <i class="fas fa-arrow-left"></i> Kembali
             </button>
@@ -133,16 +177,11 @@
         </div>
     </div>
 
-    <!-- 🔴 HAPUS AUDIO TAG LAMA -->
-    <!-- <audio autoplay loop id="bgMusic">
-        <source src="lagu_ultah.mp3" type="audio/mpeg">
-    </audio> -->
-
-    <!-- 🔴 TAMBAHKAN AUDIO HANDLER -->
     <script src="audio-handler.js"></script>
-    
     <script>
-        // Lock back button
+        if (window.audioInstance && window.audioInstance.paused) {
+            window.audioInstance.play().catch(() => {});
+        }
         history.pushState(null, null, location.href);
         window.onpopstate = () => history.go(1);
     </script>
