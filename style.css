@@ -1,0 +1,336 @@
+/* ============================================
+   STYLE.CSS - ULTAH IBU SPESIAL (FIX SCROLL)
+   Optimasi untuk HP dengan DPI 360-380
+   ============================================ */
+
+/* ========== RESET & VARIABLES ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Warna Utama */
+    --primary: #667eea;
+    --secondary: #764ba2;
+    --accent: #ff6b6b;
+    --gold: #ffd700;
+    --pink: #f8a5c2;
+    --green: #74ebd5;
+    --blue: #4a69bd;
+    
+    /* Warna Netral */
+    --white: #ffffff;
+    --white-soft: #fefefe;
+    --light-gray: #f5f5f5;
+    --gray: #666;
+    --dark: #333;
+    
+    /* Gradien */
+    --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    --gradient-accent: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    --gradient-green: linear-gradient(135deg, #74ebd5 0%, #acb6e5 100%);
+    --gradient-pink: linear-gradient(135deg, #fad0c4 0%, #ffd1ff 100%);
+    --gradient-sunset: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    
+    /* Ukuran - Optimasi untuk HP */
+    --radius-sm: 8px;
+    --radius-md: 15px;
+    --radius-lg: 20px;
+    --radius-xl: 25px;
+    --radius-full: 40px;
+    
+    /* Spacing - Disesuaikan untuk scroll */
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 12px;
+    --space-lg: 16px;
+    --space-xl: 20px;
+    --space-xxl: 24px;
+    --space-xxxl: 30px;
+    --space-xxxxl: 35px;
+    
+    /* Font */
+    --font-primary: 'Poppins', sans-serif;
+    --font-cursive: 'Dancing Script', cursive;
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.15);
+    --shadow-lg: 0 8px 20px rgba(0,0,0,0.2);
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+}
+
+/* ========== BODY - FIX SCROLL ========== */
+body {
+    font-family: var(--font-primary);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;  /* PENTING: biar bisa scroll ke atas */
+    padding: var(--space-lg);
+    position: relative;
+    overflow-y: auto;  /* PENTING: enable vertical scroll */
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch; /* Smooth scroll di iOS */
+}
+
+/* ========== CONTAINER - FIX UKURAN ========== */
+.container {
+    max-width: 500px;  /* Optimal untuk HP (DPI 360-380) */
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius-xl);
+    padding: var(--space-xxxxl) var(--space-xxl);
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    z-index: 10;
+    animation: fadeIn 0.8s ease;
+    margin: var(--space-lg) auto;  /* Biar ada jarak atas-bawah */
+}
+
+/* ========== TYPOGRAPHY - UKURAN HP ========== */
+h1 {
+    font-size: 2.2rem;  /* Ukuran pas untuk HP */
+    font-family: var(--font-cursive);
+    margin-bottom: var(--space-md);
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 1.8rem;
+    font-family: var(--font-cursive);
+    margin-bottom: var(--space-md);
+    line-height: 1.2;
+}
+
+h3 {
+    font-size: 1.4rem;
+    margin-bottom: var(--space-sm);
+}
+
+p {
+    line-height: 1.6;
+    color: var(--dark);
+    font-size: 0.95rem;
+    margin-bottom: var(--space-sm);
+}
+
+/* ========== HIGHLIGHT TEXT ========== */
+.highlight {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin: var(--space-md) 0;
+    line-height: 1.2;
+}
+
+.to-text {
+    font-size: 1.3rem;
+    color: var(--secondary);
+    font-weight: 300;
+}
+
+/* ========== BUTTONS ========== */
+.btn-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: var(--space-xxl);
+    gap: var(--space-sm);
+    flex-wrap: wrap;  /* Biar rapi di HP kecil */
+}
+
+.btn {
+    padding: var(--space-md) var(--space-xl);
+    border: none;
+    border-radius: var(--radius-full);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-normal);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xs);
+    text-decoration: none;
+    color: white;
+    box-shadow: var(--shadow-sm);
+    min-width: 120px;
+    flex: 1;  /* Biar tombol sama besar */
+}
+
+/* ========== POEM / MESSAGE BOX ========== */
+.poem-box {
+    background: rgba(255, 107, 107, 0.1);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    margin: var(--space-lg) 0;
+    border-left: 4px solid var(--accent);
+    font-size: 1rem;
+    line-height: 1.8;
+    max-height: none;  /* Penting: biar konten full */
+    overflow: visible;  /* Penting: biar bisa discroll */
+}
+
+.signature {
+    font-family: var(--font-cursive);
+    font-size: 1.5rem;
+    color: var(--accent);
+    margin-top: var(--space-md);
+    text-align: right;
+}
+
+/* ========== PHOTO GRID - FIX UNTUK HP ========== */
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);  /* 2 foto per baris di HP */
+    gap: var(--space-sm);
+    margin: var(--space-lg) 0;
+    max-height: none;
+    overflow: visible;
+}
+
+.photo-card {
+    background: white;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-fast);
+}
+
+.photo-card img {
+    width: 100%;
+    height: 120px;  /* Ukuran pas untuk HP */
+    object-fit: cover;
+}
+
+.photo-card .caption {
+    padding: var(--space-xs);
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--dark);
+}
+
+/* ========== VIDEO CONTAINER ========== */
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    margin: var(--space-lg) 0;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+/* ========== PAGE INDICATOR ========== */
+.page-indicator {
+    text-align: center;
+    margin-top: var(--space-lg);
+    color: var(--gray);
+    font-size: 0.8rem;
+}
+
+/* ========== FOOTER ========== */
+.footer {
+    margin-top: var(--space-xl);
+    color: var(--gray);
+    font-size: 0.8rem;
+    text-align: center;
+    border-top: 1px dashed rgba(0,0,0,0.1);
+    padding-top: var(--space-md);
+}
+
+/* ========== RESPONSIVE UNTUK DPI 360-380 ========== */
+@media (max-width: 380px) {
+    :root {
+        --space-xxxxl: 30px;
+        --space-xxl: 20px;
+    }
+    
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.6rem; }
+    .highlight { font-size: 1.8rem; }
+    
+    .photo-grid {
+        grid-template-columns: 1fr;  /* 1 foto per baris di HP kecil */
+    }
+    
+    .btn-container {
+        flex-direction: column;
+    }
+    
+    .btn {
+        width: 100%;
+    }
+}
+
+/* ========== RESPONSIVE UNTUK HP STANDAR ========== */
+@media (min-width: 381px) and (max-width: 480px) {
+    :root {
+        --space-xxxxl: 35px;
+    }
+    
+    h1 { font-size: 2.2rem; }
+    .photo-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ========== RESPONSIVE UNTUK TABLET ========== */
+@media (min-width: 481px) and (max-width: 768px) {
+    .container {
+        max-width: 600px;
+    }
+    
+    .photo-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* ========== RESPONSIVE UNTUK DESKTOP ========== */
+@media (min-width: 769px) {
+    .container {
+        max-width: 700px;
+    }
+    
+    .photo-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* ========== ANIMASI ========== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========== SCROLLBAR TETAP ADA ========== */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--light-gray);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: var(--radius-full);
+}
+
+/* ========== PASTIKAN SEMUA KONTEN BISA DI-SCROLL ========== */
+.message-box, .poem-box, .photo-grid {
+    max-height: none !important;
+    overflow: visible !important;
+}

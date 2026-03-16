@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎂 Selamat Ulang Tahun Ibu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Background Confetti */
+        .confetti {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .confetti-piece {
+            position: absolute;
+            width: 10px;
+            height: 20px;
+            background: #ffd700;
+            opacity: 0.7;
+            animation: fall 5s linear infinite;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-100px) rotate(0deg); }
+            100% { transform: translateY(100vh) rotate(360deg); }
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 40px;
+            padding: 50px;
+            text-align: center;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 10;
+            animation: fadeScale 1s ease;
+        }
+
+        @keyframes fadeScale {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            color: #667eea;
+            margin-bottom: 15px;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .to {
+            font-size: 2rem;
+            color: #764ba2;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .highlight {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #ff6b6b;
+            text-shadow: 2px 2px 5px rgba(255, 107, 107, 0.3);
+            margin-bottom: 40px;
+        }
+
+        .message {
+            font-size: 1.3rem;
+            color: #333;
+            line-height: 1.8;
+            margin: 30px 0;
+            padding: 30px;
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 30px;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .btn-next {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 20px 50px;
+            font-size: 1.5rem;
+            font-weight: 600;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.5);
+            animation: pulse 2s infinite;
+        }
+
+        .btn-next:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.7);
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .footer {
+            margin-top: 30px;
+            color: #999;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Confetti Background -->
+    <div class="confetti" id="confetti"></div>
+
+    <div class="container">
+        <h1>🎉 Happy Birthday! 🎉</h1>
+        <div class="to">Untuk Ibu Tersayang,</div>
+        <div class="highlight">Ibu Meida</div>
+        
+        <div class="message">
+            <p>❤️ Dari dua orang yang sangat menyayangimu:</p>
+            <p style="font-size: 1.8rem; margin: 20px 0;">Rafi & Meida</p>
+            <p>✨ Kami punya kejutan spesial untukmu ✨</p>
+            <p style="font-size: 1rem; margin-top: 20px;">Klik tombol di bawah untuk memulainya...</p>
+        </div>
+
+        <div class="btn-container">
+            <button class="btn-next" onclick="location.href='halaman2.html'">
+                 Pencet Aku Dong 🥰💐
+            </button>
+        </div>
+
+        <div class="footer">
+            © Dibuat dengan cinta oleh anakmu dan Rafi Abang online
+        </div>
+    </div>
+
+    <!-- 🔴 GANTI LAGU ULANG TAHUN DI SINI -->
+    <audio autoplay loop id="bgMusic">
+        <source src="lagu_ultah.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        // Konfigurasi
+        const AUDIO_VOLUME = 0.4;
+
+        // Audio handling
+        const audio = document.getElementById('bgMusic');
+        audio.volume = AUDIO_VOLUME;
+
+        // Auto play dengan fallback
+        audio.play().catch(() => {
+            console.log('Auto play dicegah, fallback setelah interaksi');
+            document.addEventListener('click', function playOnce() {
+                audio.play();
+                document.removeEventListener('click', playOnce);
+            }, { once: true });
+        });
+
+        // Confetti effect (ringan)
+        function createConfetti() {
+            const confettiContainer = document.getElementById('confetti');
+            for (let i = 0; i < 30; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti-piece';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.animationDelay = Math.random() * 5 + 's';
+                confetti.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                confettiContainer.appendChild(confetti);
+            }
+        }
+
+        createConfetti();
+
+        // Lock back button
+        history.pushState(null, null, location.href);
+        window.onpopstate = () => history.go(1);
+    </script>
+</body>
+</html>

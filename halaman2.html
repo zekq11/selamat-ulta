@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎂 Kata-kata untuk Ibu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 40px;
+            padding: 50px;
+            text-align: center;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 0.8s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: #ff6b6b;
+            margin-bottom: 30px;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .poem {
+            background: rgba(255, 107, 107, 0.1);
+            border-radius: 30px;
+            padding: 40px;
+            margin: 30px 0;
+            text-align: left;
+            font-size: 1.2rem;
+            line-height: 2;
+            border-left: 5px solid #ff6b6b;
+        }
+
+        .poem p {
+            margin: 15px 0;
+            font-style: italic;
+        }
+
+        .signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: #ff6b6b;
+            margin-top: 20px;
+            text-align: right;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-prev {
+            background: #95a5a6;
+            color: white;
+        }
+
+        .btn-next {
+            background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+            color: white;
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .page-indicator {
+            text-align: center;
+            margin-top: 20px;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>✨ Kata-kata untuk Ibu ✨</h2>
+
+        <!-- 🔴 GANTI PUISI DI SINI SESUAI KEINGINAN -->
+        <div class="poem">
+            <p>🌸 Ibu,</p>
+            <p>Engkau bagai mentari yang selalu bersinar,</p>
+            <p>Memberi hangat di setiap hari-hariku.</p>
+            <p>Tak pernah lelah kau berjuang,</p>
+            <p>Tak pernah putus kau berdoa.</p>
+            <br>
+            <p>🙏 Terima kasih untuk setiap peluh,</p>
+            <p>Yang jatuh demi kebahagiaanku.</p>
+            <p>Terima kasih untuk setiap doa,</p>
+            <p>Yang kau panjatkan di setiap sujudmu.</p>
+            <br>
+            <p>🎂 Di hari istimewamu ini,</p>
+            <p>Kami hanya ingin berkata,</p>
+            <p>Engkau adalah hadiah terindah</p>
+            <p>Yang Tuhan berikan untuk kami.</p>
+        </div>
+
+        <!-- 🔴 GANTI TANDA TANGAN -->
+        <div class="signature">
+            Dari anak-anakmu,<br>
+            [NAMA KAMU] & [NAMA ADEK] ❤️
+        </div>
+
+        <div class="btn-container">
+            <button class="btn btn-prev" onclick="location.href='index.html'">
+                <i class="fas fa-arrow-left"></i> Kembali
+            </button>
+            <button class="btn btn-next" onclick="location.href='halaman3.html'">
+                Lanjut ke Foto <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+
+        <div class="page-indicator">
+            Halaman 2 dari 5
+        </div>
+    </div>
+
+    <!-- Audio (lagu yang sama) -->
+    <audio autoplay loop id="bgMusic">
+        <source src="lagu_ultah.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        const audio = document.getElementById('bgMusic');
+        audio.volume = 0.4;
+        
+        // Fallback auto play
+        audio.play().catch(() => {
+            document.addEventListener('click', function playOnce() {
+                audio.play();
+                document.removeEventListener('click', playOnce);
+            }, { once: true });
+        });
+    </script>
+</body>
+</html>
