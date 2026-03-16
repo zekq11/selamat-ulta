@@ -136,7 +136,7 @@
 <body>
     <div class="container">
         <h2>🎥 Kejutan Terakhir untuk Ibu Meida</h2>
-        <div class="sub">Dari Saya Rafi seorang Abang Onlien, dengan segenap cinta</div>
+        <div class="sub">Dari Saya Rafi seorang Abang Online, dengan segenap cinta</div>
 
         <!-- VIDEO FULL LEBAR -->
         <div class="video-wrapper">
@@ -164,11 +164,18 @@
         </div>
         
         <div class="footer">
-            Dengan cinta, Rafi sebagai abang online si meida
+            Dengan cinta, Rafi sebagai abang online si Meida
         </div>
     </div>
 
+    <!-- 🔴 TAMBAHKAN AUDIO HANDLER + AUTO STOP -->
+    <script src="audio-handler.js"></script>
     <script>
+        // Matikan audio di halaman video
+        if (typeof pauseAudio === 'function') {
+            pauseAudio();
+        }
+
         // Confetti simpel
         function createConfetti() {
             for (let i = 0; i < 20; i++) {
@@ -202,6 +209,10 @@
         }
 
         createConfetti();
+
+        // Lock back button
+        history.pushState(null, null, location.href);
+        window.onpopstate = () => history.go(1);
     </script>
 </body>
 </html>
