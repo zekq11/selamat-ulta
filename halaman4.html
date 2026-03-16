@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>🎥 Video Ucapan untuk Ibu Meida</title>
+    <title>🎥 Video Ucapan untuk Ibu</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -47,21 +47,23 @@
             font-size: 0.95rem;
         }
 
+        /* ===== VIDEO VERTIKAL 9:16 ===== */
         .video-wrapper {
             width: 100%;
+            max-width: 400px; /* Batasi lebar maks untuk vertikal */
+            margin: 10px auto;
             background: #000;
-            border-radius: 20px;
+            border-radius: 30px;
             overflow: hidden;
-            margin: 10px 0 15px;
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-            aspect-ratio: 16 / 9;
+            aspect-ratio: 9 / 16; /* Rasio vertikal (Instagram/TikTok) */
         }
 
         video {
             width: 100%;
             height: 100%;
             display: block;
-            object-fit: cover;
+            object-fit: cover; /* Video memenuhi kotak */
         }
 
         .message-box {
@@ -101,6 +103,7 @@
             width: 100%;
             max-width: 300px;
             justify-content: center;
+            margin: 0 auto;
         }
 
         .btn-home:hover {
@@ -123,6 +126,13 @@
             border-top: 1px dashed #ddd;
             padding-top: 12px;
         }
+
+        /* Responsive untuk HP kecil */
+        @media (max-width: 380px) {
+            h2 { font-size: 1.7rem; }
+            .message-box p { font-size: 1rem; }
+            .video-wrapper { max-width: 100%; }
+        }
     </style>
 </head>
 <body>
@@ -130,8 +140,10 @@
         <h2>🎥 Kejutan Terakhir untuk Ibu Meida</h2>
         <div class="sub">Dari Saya Rafi seorang Abang Online, dengan segenap cinta</div>
 
+        <!-- VIDEO VERTIKAL 9:16 -->
         <div class="video-wrapper">
             <video controls autoplay muted playsinline>
+                <!-- 🔴 PASTIKAN FILE VIDEO ADA DI ROOT -->
                 <source src="ucapan.mp4" type="video/mp4">
                 Browser tidak mendukung video.
             </video>
