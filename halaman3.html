@@ -95,21 +95,15 @@
         </div>
     </div>
 
-    <!-- Audio -->
-    <audio autoplay loop id="bgMusic">
+    <!-- 🔴 HAPUS AUDIO TAG LAMA -->
+    <!-- <audio autoplay loop id="bgMusic">
         <source src="lagu_ultah.mp3" type="audio/mpeg">
-    </audio>
+    </audio> -->
 
+    <!-- 🔴 TAMBAHKAN AUDIO HANDLER -->
+    <script src="audio-handler.js"></script>
+    
     <script>
-        const audio = document.getElementById('bgMusic');
-        audio.volume = 0.4;
-        audio.play().catch(() => {
-            document.addEventListener('click', function playOnce() {
-                audio.play();
-                document.removeEventListener('click', playOnce);
-            }, { once: true });
-        });
-
         // Lock back button
         history.pushState(null, null, location.href);
         window.onpopstate = () => history.go(1);
