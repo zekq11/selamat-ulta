@@ -25,7 +25,6 @@
             overflow: hidden;
         }
 
-        /* Background Confetti */
         .confetti {
             position: fixed;
             width: 100%;
@@ -138,7 +137,6 @@
     </style>
 </head>
 <body>
-    <!-- Confetti Background -->
     <div class="confetti" id="confetti"></div>
 
     <div class="container">
@@ -164,29 +162,8 @@
         </div>
     </div>
 
-    <!-- 🔴 GANTI LAGU ULANG TAHUN DI SINI -->
-    <audio autoplay loop id="bgMusic">
-        <source src="lagu_ultah.mp3" type="audio/mpeg">
-    </audio>
-
+    <script src="audio-handler.js"></script>
     <script>
-        // Konfigurasi
-        const AUDIO_VOLUME = 0.4;
-
-        // Audio handling
-        const audio = document.getElementById('bgMusic');
-        audio.volume = AUDIO_VOLUME;
-
-        // Auto play dengan fallback
-        audio.play().catch(() => {
-            console.log('Auto play dicegah, fallback setelah interaksi');
-            document.addEventListener('click', function playOnce() {
-                audio.play();
-                document.removeEventListener('click', playOnce);
-            }, { once: true });
-        });
-
-        // Confetti effect (ringan)
         function createConfetti() {
             const confettiContainer = document.getElementById('confetti');
             for (let i = 0; i < 30; i++) {
@@ -198,14 +175,10 @@
                 confettiContainer.appendChild(confetti);
             }
         }
-
         createConfetti();
-
-        // Lock back button
+        
         history.pushState(null, null, location.href);
         window.onpopstate = () => history.go(1);
     </script>
-    
-     <script src="audio-handler.js"></script>
 </body>
 </html>
