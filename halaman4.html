@@ -2,51 +2,160 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎥 Video Ucapan untuk Ibu Meida Dari Rafi si abang online</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>🎥 Video Ucapan untuk Ibu</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
     <style>
-        .special-message {
-            background: linear-gradient(135deg, #ffdde1, #ee9ca7);
-            border-radius: 30px;
-            padding: 30px;
-            margin: 30px 0;
-            color: white;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 100%;
+            width: 100%;
+            min-height: 100vh;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px 15px 30px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #ff6b6b;
+            margin-bottom: 5px;
+            font-family: 'Dancing Script', cursive;
+            text-align: center;
+        }
+
+        .sub {
+            text-align: center;
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        /* ===== VIDEO FULL LEBAR ===== */
+        .video-wrapper {
+            width: 100%;
+            background: #000;
+            border-radius: 20px;
+            overflow: hidden;
+            margin: 10px 0 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            aspect-ratio: 16 / 9;
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;  /* Biar video full tanpa border hitam */
+        }
+
+        .message-box {
+            background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+            border-radius: 20px;
+            padding: 20px 15px;
+            margin: 15px 0;
+            color: white;
+            text-align: center;
+        }
+
+        .message-box p {
+            margin: 8px 0;
+            font-size: 1.1rem;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            margin: 15px 0 10px;
+        }
+
         .btn-home {
             background: linear-gradient(135deg, #4a69bd, #6a89cc);
+            color: white;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(74, 105, 189, 0.4);
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+            max-width: 300px;
+            justify-content: center;
+        }
+
+        .btn-home:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(74, 105, 189, 0.6);
+        }
+
+        .page-indicator {
+            text-align: center;
+            margin: 10px 0 5px;
+            color: #999;
+            font-size: 0.85rem;
+        }
+
+        .footer {
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            border-top: 1px dashed #ddd;
+            padding-top: 12px;
+        }
+
+        /* Responsive untuk HP kecil */
+        @media (max-width: 380px) {
+            h2 { font-size: 1.7rem; }
+            .message-box p { font-size: 1rem; }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h2>🎥 Kejutan Terakhir untuk Ibu</h2>
-        <div class="sub">Dari kami berdua, dengan segenap cinta</div>
+        <h2>🎥 Kejutan Terakhir untuk Ibu Meida</h2>
+        <div class="sub">Dari Saya Rafi seorang Abang Onlien, dengan segenap cinta</div>
 
-        <!-- 🔴 VIDEO UCAPAN -->
-        <div class="video-container">
-            <video id="finalVideo" controls>
+        <!-- VIDEO FULL LEBAR -->
+        <div class="video-wrapper">
+            <video controls autoplay muted playsinline>
+                <!-- 🔴 PASTIKAN FILE VIDEO ADA DI ROOT -->
                 <source src="ucapan.mp4" type="video/mp4">
                 Browser tidak mendukung video.
             </video>
         </div>
 
-        <div class="special-message">
-            <p style="font-size: 1.5rem; font-family: 'Dancing Script', cursive;">🎂 Selamat ulang tahun, Ibu! 🎂</p>
+        <div class="message-box">
+            <p style="font-size: 1.4rem; font-family: 'Dancing Script', cursive;">🎂 Selamat ulang tahun, Ibu! 🎂</p>
             <p>Semoga panjang umur, sehat selalu, dan bahagia selalu.</p>
-            <p style="font-size: 2rem;">❤️</p>
+            <p style="font-size: 1.8rem; margin-top: 10px;">😍😘❤️</p>
         </div>
 
         <div class="btn-container">
-            <button class="btn btn-prev" onclick="location.href='halaman3.html'">
-                <i class="fas fa-arrow-left"></i> Kembali
-            </button>
-            <button class="btn btn-home" onclick="location.href='index.html'">
-                <i class="fas fa-home"></i> Kembali ke Awal
+            <button class="btn-home" onclick="location.href='index.html'">
+                <span>🏠</span> Kembali ke Awal
             </button>
         </div>
 
@@ -55,14 +164,12 @@
         </div>
         
         <div class="footer">
-            Dengan cinta, Meida & Rafi Si Abang Online
+            Dengan cinta, Rafi sebagai abang online si meida
         </div>
     </div>
 
-    <!-- TIDAK ADA AUDIO di halaman video -->
-    
     <script>
-        // Confetti saat halaman dibuka
+        // Confetti simpel
         function createConfetti() {
             for (let i = 0; i < 20; i++) {
                 setTimeout(() => {
@@ -70,23 +177,27 @@
                     confetti.style.position = 'fixed';
                     confetti.style.left = Math.random() * 100 + '%';
                     confetti.style.top = '-10px';
-                    confetti.style.width = '10px';
-                    confetti.style.height = '20px';
+                    confetti.style.width = '8px';
+                    confetti.style.height = '15px';
                     confetti.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;
                     confetti.style.zIndex = 9999;
                     confetti.style.pointerEvents = 'none';
+                    confetti.style.borderRadius = '4px';
                     document.body.appendChild(confetti);
                     
                     let pos = -10;
+                    let xMove = (Math.random() - 0.5) * 2;
                     const interval = setInterval(() => {
                         pos += 5;
                         confetti.style.top = pos + 'px';
+                        confetti.style.left = (parseFloat(confetti.style.left) + xMove) + '%';
+                        
                         if (pos > window.innerHeight + 100) {
                             clearInterval(interval);
                             confetti.remove();
                         }
                     }, 20);
-                }, i * 100);
+                }, i * 70);
             }
         }
 
