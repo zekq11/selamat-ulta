@@ -134,6 +134,27 @@
             color: #999;
             font-size: 0.9rem;
         }
+
+        /* Toast notification */
+        .audio-toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #667eea;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            z-index: 9999;
+            font-size: 0.9rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from { transform: translate(-50%, 100%); opacity: 0; }
+            to { transform: translate(-50%, 0); opacity: 1; }
+        }
     </style>
 </head>
 <body>
@@ -164,6 +185,48 @@
 
     <script src="audio-handler.js"></script>
     <script>
+        // 🔥 PAKSA AUDIO PLAY DI INDEX (CUKUP DI SINI!)
+        (function forcePlayAudio() {
+            if (window.audioInstance) {
+                window.audioInstance.play()
+                    .then(() => {
+                        console.log('✅ Audio berhasil diputar');
+                        localStorage.setItem('bgMusicState', JSON.stringify({
+                            isPlaying: true,
+                            currentTime: window.audioInstance.currentTime
+                        }));
+                    })
+                    .catch(() => {
+                        console.log('⚠️ Autoplay diblokir, tampilkan toast');
+                        
+                        // Tampilkan toast
+                        const toast = document.createElement('div');
+                        toast.className = 'audio-toast';
+                        toast.innerHTML = '🔊 Tekan layar untuk memutar musik';
+                        document.body.appendChild(toast);
+                        
+                        // Play saat user interaksi
+                        const playOnClick = function() {
+                            window.audioInstance.play()
+                                .then(() => {
+                                    console.log('✅ Audio diputar setelah interaksi');
+                                    toast.remove();
+                                })
+                                .catch(() => {});
+                            document.removeEventListener('click', playOnClick);
+                        };
+                        
+                        document.addEventListener('click', playOnClick);
+                        
+                        // Auto hilang setelah 5 detik
+                        setTimeout(() => toast.remove(), 5000);
+                    });
+            } else {
+                setTimeout(forcePlayAudio, 500);
+            }
+        })();
+
+        // Confetti
         function createConfetti() {
             const confettiContainer = document.getElementById('confetti');
             for (let i = 0; i < 30; i++) {
@@ -177,6 +240,7 @@
         }
         createConfetti();
         
+        // Lock back button
         history.pushState(null, null, location.href);
         window.onpopstate = () => history.go(1);
     </script>
