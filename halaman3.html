@@ -3,170 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>📸 Foto Kenangan Ibu</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>📸 Momen Spesial Ibu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #74ebd5 0%, #acb6e5 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 1000px;
+        /* Tambahan styling khusus halaman 3 */
+        .special-photo {
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 40px;
-            padding: 40px;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
-        }
-
-        h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            color: #4a69bd;
-            margin-bottom: 20px;
-        }
-
-        .sub {
-            text-align: center;
-            color: #666;
-            margin-bottom: 40px;
-        }
-
-        /* Grid Foto */
-        .photo-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin: 40px 0;
-        }
-
-        .photo-card {
-            background: white;
-            border-radius: 20px;
+            max-width: 500px;
+            margin: 0 auto;
+            border-radius: 30px;
             overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            transition: 0.3s;
-            cursor: pointer;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border: 5px solid white;
+            transition: transform 0.3s ease;
         }
 
-        .photo-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+        .special-photo:hover {
+            transform: scale(1.02);
         }
 
-        .photo-card img {
+        .special-photo img {
             width: 100%;
-            height: 200px;
-            object-fit: cover;
+            height: auto;
+            display: block;
         }
 
-        .photo-card .caption {
-            padding: 15px;
+        .caption-box {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #ff6b6b;
             text-align: center;
-            font-size: 0.9rem;
+        }
+
+        .caption-box p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin: 15px 0;
             color: #333;
         }
 
+        .caption-box .quote {
+            font-style: italic;
+            color: #ff6b6b;
+            font-size: 1.3rem;
+        }
+
         .btn-container {
-            display: flex;
-            justify-content: space-between;
             margin-top: 40px;
-        }
-
-        .btn {
-            padding: 15px 30px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .btn-prev {
-            background: #95a5a6;
-            color: white;
-        }
-
-        .btn-next {
-            background: linear-gradient(135deg, #4a69bd, #6a89cc);
-            color: white;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .page-indicator {
-            text-align: center;
-            margin-top: 20px;
-            color: #999;
-        }
-
-        @media (max-width: 700px) {
-            .photo-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 500px) {
-            .photo-grid {
-                grid-template-columns: 1fr;
-            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h2>📸 Kenangan Manis Bersama Ibu</h2>
-        <div class="sub">Setiap foto menyimpan cerita dan kasih sayang</div>
+        <h2>📸 Momen Terindah Bersama Ibu</h2>
+        
+        <!-- 🔴 SATU GAMBAR BESAR -->
+        <div class="special-photo">
+            <img src="foto/foto_utama.jpg" alt="Foto Ibu" onerror="this.src='https://via.placeholder.com/500x500/ff6b6b/ffffff?text=Foto+Ibu'">
+        </div>
 
-        <!-- 🔴 GANTI FOTO-FOTO DI SINI -->
-        <div class="photo-grid">
-            <!-- Foto 1 -->
-            <div class="photo-card">
-                <img src="foto/foto1.jpg" alt="Foto 1" onerror="this.src='https://via.placeholder.com/300x200/4a69bd/ffffff?text=Foto+1'">
-                <div class="caption">Momen bahagia bersama</div>
-            </div>
-            <!-- Foto 2 -->
-            <div class="photo-card">
-                <img src="foto/foto2.jpg" alt="Foto 2" onerror="this.src='https://via.placeholder.com/300x200/6a89cc/ffffff?text=Foto+2'">
-                <div class="caption">Senyum Ibu yang menenangkan</div>
-            </div>
-            <!-- Foto 3 -->
-            <div class="photo-card">
-                <img src="foto/foto3.jpg" alt="Foto 3" onerror="this.src='https://via.placeholder.com/300x200/4a69bd/ffffff?text=Foto+3'">
-                <div class="caption">Liburan bersama keluarga</div>
-            </div>
-            <!-- Foto 4 -->
-            <div class="photo-card">
-                <img src="foto/foto4.jpg" alt="Foto 4" onerror="this.src='https://via.placeholder.com/300x200/6a89cc/ffffff?text=Foto+4'">
-                <div class="caption">Hari spesial kita</div>
-            </div>
-            <!-- Foto 5 -->
-            <div class="photo-card">
-                <img src="foto/foto5.jpg" alt="Foto 5" onerror="this.src='https://via.placeholder.com/300x200/4a69bd/ffffff?text=Foto+5'">
-                <div class="caption">Kebersamaan yang tak terlupakan</div>
-            </div>
-            <!-- Foto 6 -->
-            <div class="photo-card">
-                <img src="foto/foto6.jpg" alt="Foto 6" onerror="this.src='https://via.placeholder.com/300x200/6a89cc/ffffff?text=Foto+6'">
-                <div class="caption">Cinta Ibu sepanjang masa</div>
-            </div>
+        <!-- 🔴 KATA-KATA DI BAWAH GAMBAR -->
+        <div class="caption-box">
+            <p class="quote">"Di balik setiap senyuman Ibu, ada doa yang tulus untuk anak-anaknya."</p>
+            <p>Ibu, foto ini selalu mengingatkan kami akan kebahagiaan yang kau berikan setiap hari.</p>
+            <p>Terima kasih untuk semua pelukan hangat dan kasih sayang tanpa batas.</p>
+            <p style="font-size: 1.5rem; color: #ff6b6b;">❤️❤️❤️</p>
+        </div>
+
+        <!-- 🔴 GANTI NAMA -->
+        <div class="signature">
+            Dari anak-anakmu,<br>
+            [NAMA KAMU] & [NAMA ADEK]
         </div>
 
         <div class="btn-container">
@@ -174,12 +86,12 @@
                 <i class="fas fa-arrow-left"></i> Kembali
             </button>
             <button class="btn btn-next" onclick="location.href='halaman4.html'">
-                Lanjut ke Foto Lainnya <i class="fas fa-arrow-right"></i>
+                Kejutan Terakhir <i class="fas fa-arrow-right"></i>
             </button>
         </div>
 
         <div class="page-indicator">
-            Halaman 3 dari 5
+            Halaman 3 dari 4
         </div>
     </div>
 
@@ -197,6 +109,10 @@
                 document.removeEventListener('click', playOnce);
             }, { once: true });
         });
+
+        // Lock back button
+        history.pushState(null, null, location.href);
+        window.onpopstate = () => history.go(1);
     </script>
 </body>
 </html>
