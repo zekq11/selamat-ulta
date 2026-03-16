@@ -56,6 +56,44 @@
         .btn-container {
             margin-top: 40px;
         }
+
+        /* 🔴 FIX WARNA TOMBOL */
+        .btn-prev {
+            background: #ff9f4b;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 5px 15px rgba(255, 159, 75, 0.4);
+        }
+
+        .btn-next {
+            background: #ff6b9d;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 5px 15px rgba(255, 107, 157, 0.4);
+        }
+
+        .btn-prev:hover, .btn-next:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
     </style>
 </head>
 <body>
@@ -75,17 +113,17 @@
             <p style="font-size: 1.5rem; color: #ff6b6b;">❤️❤️❤️</p>
         </div>
 
-        <!-- 🔴 GANTI NAMA -->
+        <!-- 🔴 GANTI NAMA sesuai permintaan -->
         <div class="signature">
-            Dari anakmu & Abang online<br>
-            Meida & Rafi
+            Dari anakmu Meida & Abang online<br>
+            <span style="font-size: 1.2rem;">Meida & Rafi 🌸💐</span>
         </div>
 
-        <div class="btn-container">
-            <button class="btn btn-prev" onclick="location.href='halaman2.html'">
+        <div class="btn-container" style="display: flex; justify-content: space-between; gap: 15px;">
+            <button class="btn-prev" onclick="location.href='halaman2.html'">
                 <i class="fas fa-arrow-left"></i> Kembali
             </button>
-            <button class="btn btn-next" onclick="location.href='halaman4.html'">
+            <button class="btn-next" onclick="location.href='halaman4.html'">
                 Kejutan Terakhir <i class="fas fa-arrow-right"></i>
             </button>
         </div>
