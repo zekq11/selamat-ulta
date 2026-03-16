@@ -76,27 +76,32 @@
             margin-top: 40px;
         }
 
-        .btn {
+        .btn-prev {
+            background: #95a5a6;
+            color: white;
             padding: 15px 30px;
             border: none;
             border-radius: 50px;
             font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
-            transition: 0.3s;
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
-        .btn-prev {
-            background: #95a5a6;
-            color: white;
-        }
-
         .btn-next {
             background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
             color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
             box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
         }
 
@@ -116,7 +121,6 @@
     <div class="container">
         <h2>✨ Kata-kata untuk Ibu ✨</h2>
 
-        <!-- 🔴 GANTI PUISI DI SINI SESUAI KEINGINAN -->
         <div class="poem">
             <p>🌸 Ibu,</p>
             <p>Engkau bagai mentari yang selalu bersinar,</p>
@@ -135,38 +139,30 @@
             <p>Yang Tuhan berikan untuk kami.</p>
         </div>
 
-        <!-- 🔴 GANTI TANDA TANGAN -->
         <div class="signature">
-            Dari anakmu dan abang online<br>
-           ❤️ Meida & Rafi 💐
+            Dari anakmu Meida & Abang online<br>
+            <span style="font-size: 1.2rem;">Meida & Rafi 🌸💐</span>
         </div>
 
         <div class="btn-container">
-            <button class="btn btn-prev" onclick="location.href='index.html'">
+            <button class="btn-prev" onclick="location.href='index.html'">
                 <i class="fas fa-arrow-left"></i> Kembali
             </button>
-            <button class="btn btn-next" onclick="location.href='halaman3.html'">
+            <button class="btn-next" onclick="location.href='halaman3.html'">
                 Lanjut ke Foto <i class="fas fa-arrow-right"></i>
             </button>
         </div>
 
         <div class="page-indicator">
-            Halaman 2 dari 5
+            Halaman 2 dari 4
         </div>
     </div>
 
-    <!-- 🔴 HAPUS AUDIO TAG LAMA -->
-    <!-- <audio autoplay loop id="bgMusic">
-        <source src="lagu_ultah.mp3" type="audio/mpeg">
-    </audio> -->
-
-    <!-- 🔴 TAMBAHKAN AUDIO HANDLER -->
     <script src="audio-handler.js"></script>
-    
     <script>
-        // Tidak perlu kode audio lagi
-        
-        // Lock back button
+        if (window.audioInstance && window.audioInstance.paused) {
+            window.audioInstance.play().catch(() => {});
+        }
         history.pushState(null, null, location.href);
         window.onpopstate = () => history.go(1);
     </script>
